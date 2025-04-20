@@ -14,7 +14,7 @@ const Login = () => {
     const toastId = toast.loading('Logging in...');
 
     try {
-      const res = await axios.post('/api/auth/login', { email, password });
+      const res = await axios.post(`${import.meta.env.VITE_SERVER}/api/auth/login`, { email, password });
       localStorage.setItem('token', res.data.token);
 
       toast.update(toastId, {

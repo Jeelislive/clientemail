@@ -14,8 +14,8 @@ const Register = () => {
     const toastId = toast.loading('Registering...');
 
     try {
-      const res = await axios.post('/api/auth/register', { email, password });
-
+      const res = await axios.post(`${import.meta.env.VITE_SERVER}/api/auth/register`, { email, password });
+                
       toast.update(toastId, {
         render: res.data.msg,
         type: 'success',
