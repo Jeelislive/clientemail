@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import API from '../utils/api';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ const Dashboard = () => {
       }
 
       try {
-        const response = await API.get('/api/auth/user', {
+        const response = await axios.get('/api/auth/user', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

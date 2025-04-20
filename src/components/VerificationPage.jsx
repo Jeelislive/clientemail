@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import API from '../utils/api';
 
 const VerificationPage = () => {
   const { token } = useParams();
@@ -15,7 +14,7 @@ const VerificationPage = () => {
       setLoading(true);
 
       try {
-        const response = await API.post(`/api/auth/verify/${token}`);
+        const response = await axios.get(`/api/auth/verify/${token}`);
 
         toast.success(response.data.msg || 'Email verified successfully!');
 
