@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './register.css'; // Add your CSS file for styling
+import API from '../utils/api';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -14,8 +15,10 @@ const Register = () => {
     const toastId = toast.loading('Registering...');
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_SERVER}/api/auth/register`, { email, password });
-                
+      const res = await API.post('/api/auth/register', { email, password });
+
+      // const res = await axios.post('/api/auth/register', { email, password });
+
       toast.update(toastId, {
         render: res.data.msg,
         type: 'success',
