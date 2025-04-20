@@ -14,7 +14,7 @@ const VerificationPage = () => {
       setLoading(true);
 
       try {
-        const response = await axios.get(`${import.meta.env.VITE_SERVER}/api/auth/verify/${token}`);
+        const response = await axios.get(`${import.meta.env.VITE_SERVER}api/auth/verify/${token}`);
 
         toast.success(response.data.msg || 'Email verified successfully!');
 
